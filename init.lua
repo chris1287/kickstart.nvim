@@ -203,13 +203,19 @@ require('gitsigns').setup {
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
+  pickers = {
+    lsp_references = {
+      show_line=false
+    }
+  },
   defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
+    layout_strategy = "vertical",
+    layout_config = {
+      width = 0.98,
+      height = 0.98,
     },
+    file_ignore_patterns = { "%.pyc", "%.pyi", "%.o" },
+    path_display = { "truncate" },
   },
 }
 
