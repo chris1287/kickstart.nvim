@@ -135,6 +135,8 @@ vim.opt.splitbelow = true -- force all horizontal splits to go below current win
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 vim.opt.showtabline = 2 -- always show tabs
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key
@@ -182,7 +184,7 @@ require('Comment').setup()
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
 require('indent_blankline').setup {
-  char = '┊',
+  char="",
   show_trailing_blankline_indent = false,
 }
 
