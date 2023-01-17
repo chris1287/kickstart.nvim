@@ -55,6 +55,7 @@ require('packer').startup(function(use)
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
   use 'akinsho/toggleterm.nvim' -- toggleterm
+  use 'github/copilot.vim'
 
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
@@ -126,6 +127,12 @@ vim.cmd [[colorscheme onedark]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+-- Copilot configuration
+vim.cmd [[ highlight CopilotSuggestion guifg=#F92672 gui=italic ]]
+vim.g.copilot_filtypes = { xml = false }
+vim.keymap.set('i', '<C-a>', 'copilot#Accept()', { silent = true, expr = true, desc = 'Accept Copilot suggestion' })
+vim.g.copilot_no_tab_map = true
 
 
 vim.opt.expandtab = true -- convert tabs to spaces
@@ -371,7 +378,7 @@ end
 local servers = {
   clangd = {},
   -- gopls = {},
-  -- pyright = {},
+  pyright = {},
   rust_analyzer = {},
   -- tsserver = {},
 
