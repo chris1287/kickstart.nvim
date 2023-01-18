@@ -131,7 +131,7 @@ vim.o.completeopt = 'menuone,noselect'
 -- Copilot configuration
 vim.cmd [[ highlight CopilotSuggestion guifg=#F92672 gui=italic ]]
 vim.g.copilot_filtypes = { xml = false }
-vim.keymap.set('i', '<C-a>', 'copilot#Accept()', { silent = true, expr = true, desc = 'Accept Copilot suggestion' })
+vim.keymap.set('i', '<C-a>', 'copilot#Accept()', { silent = true, expr = true, replace_keycodes = false, desc = 'Accept Copilot suggestion' })
 vim.g.copilot_no_tab_map = true
 
 
