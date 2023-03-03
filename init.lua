@@ -138,6 +138,7 @@ vim.g.copilot_no_tab_map = true
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 4 -- insert 4 spaces for a tab
+vim.opt.softtabstop = 4 -- number of spaces to use for autoindent
 vim.opt.swapfile = false -- avoit swap files
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
