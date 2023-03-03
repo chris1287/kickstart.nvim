@@ -57,6 +57,9 @@ require('packer').startup(function(use)
   use 'akinsho/toggleterm.nvim' -- toggleterm
   use 'github/copilot.vim'
 
+  -- Harpoon
+  use 'ThePrimeagen/harpoon'
+
   -- Fuzzy Finder (files, lsp, etc)
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x', requires = { 'nvim-lua/plenary.nvim' } }
 
@@ -237,8 +240,16 @@ require('telescope').setup {
   },
 }
 
+require('harpoon').setup{
+}
+
+
 -- nerdtree
 vim.keymap.set('n', '<leader>fe', ':NERDTreeToggle<CR>', { desc = '[F]ile [E]xplorer' })
+
+-- harpoon
+vim.keymap.set('n', '<leader>hm', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { desc = '[H]arpoon [M]enu' })
+vim.keymap.set('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>', { desc = '[H]arpoon [A]dd file' })
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -385,13 +396,6 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   -- tsserver = {},
-
-  sumneko_lua = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
 }
 
 -- Setup neovim lua configuration
